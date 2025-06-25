@@ -1,7 +1,7 @@
 // @testing-library/jest-dom needed for custom matchers not included in Vitest or Testing Library.
 import '@testing-library/jest-dom'
-import userEvent from '@testing-library/user-event'
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { createMemoryRouter, RouterProvider } from 'react-router'
 import { describe, expect, it } from 'vitest'
 import App, { Home, Products } from './App'
@@ -32,27 +32,28 @@ describe('Products', () => {
 			'thumb1.jpg',
 		)
 	})
-})
 
-const errorLoader = () => Promise.reject(new Error('Failed to fetch products'))
+	const errorLoader = () =>
+		Promise.reject(new Error('Failed to fetch products'))
 
-it('shows error if loader fails', async () => {
-	const testRoutes = [
-		{
-			path: '/',
-			element: <Home />,
-		},
-		{
-			path: '/products',
-			element: <Products />,
-			loader: errorLoader,
-			errorElement: <div>Failed to load products</div>,
-		},
-	]
-	render(<App initialEntries={['/products']} routes={testRoutes} />)
-	expect(
-		await screen.findByText(/failed to load products/i),
-	).toBeInTheDocument()
+	it('shows error if loader fails', async () => {
+		const testRoutes = [
+			{
+				path: '/',
+				element: <Home />,
+			},
+			{
+				path: '/products',
+				element: <Products />,
+				loader: errorLoader,
+				errorElement: <div>Failed to load products</div>,
+			},
+		]
+		render(<App initialEntries={['/products']} routes={testRoutes} />)
+		expect(
+			await screen.findByText(/failed to load products/i),
+		).toBeInTheDocument()
+	})
 })
 
 describe('Home', () => {

@@ -54,7 +54,7 @@ export function Home() {
 // Products *page* using Suspense and Await, with navigation
 export function Products() {
 	const navigate = useNavigate()
-	const dataPromise = useLoaderData() as Promise<ProductResponse>
+	const dataPromise = useLoaderData<Promise<ProductResponse>>()
 
 	return (
 		<section className="max-w-2xl mx-auto mt-10 bg-white rounded-xl shadow-lg p-8 border border-gray-200">
@@ -128,6 +128,7 @@ const routes = [
 		path: '/products',
 		element: <Products />,
 		loader: productsLoader,
+		HydrateFallback: () => null,
 		errorElement: <ProductsError />,
 	},
 	{

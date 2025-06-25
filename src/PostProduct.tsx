@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/nursery/useUniqueElementIds: <explanation> */
 import { useEffect, useRef } from 'react'
 import { Form, useActionData, useNavigate, useNavigation } from 'react-router'
 
@@ -45,6 +46,7 @@ export function PostProduct() {
 						Title:
 					</label>
 					<input
+						id="title"
 						name="title"
 						required
 						className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -59,6 +61,7 @@ export function PostProduct() {
 						Price:
 					</label>
 					<input
+						id="price"
 						name="price"
 						type="number"
 						required
