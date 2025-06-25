@@ -12,12 +12,14 @@ export async function postProductAction({ request }: { request: Request }) {
 		headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify(product),
 	})
+
 	if (!response.ok) throw new Error('Failed to add product')
+
 	return response.json()
 }
 
 export function PostProduct() {
-	const actionData = useActionData() as { id?: number; title?: string }
+	const actionData = useActionData<{ id?: number; title?: string }>()
 	const navigation = useNavigation()
 	const navigate = useNavigate()
 	const formRef = useRef<HTMLFormElement>(null)
