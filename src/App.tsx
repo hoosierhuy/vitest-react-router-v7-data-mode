@@ -19,7 +19,9 @@ type ProductResponse = {
 
 // Loader function using dummyjson API
 async function productsLoader(): Promise<ProductResponse> {
-	const response = await fetch('https://dummyjson.com/products?limit=10')
+	const response = await fetch(
+		'https://dummyjson.com/products?limit=10&skip=0&select=id,title,thumbnail',
+	)
 	if (!response.ok) throw new Error('Failed to fetch products')
 
 	return response.json()
