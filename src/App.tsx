@@ -27,32 +27,6 @@ async function productsLoader(): Promise<ProductResponse> {
 	return response.json()
 }
 
-// Home *component* with navigation
-export function Home() {
-	const navigate = useNavigate()
-
-	return (
-		<section className="max-w-md mx-auto mt-16 bg-white rounded-xl shadow-lg p-10 border border-gray-200 flex flex-col items-center space-y-6">
-			<h2 className="text-3xl font-bold text-blue-700 mb-4">Home</h2>
-			<button
-				type="button"
-				onClick={() => navigate('/products')}
-				className="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 transition-colors"
-			>
-				Go to Products
-			</button>
-
-			<button
-				type="button"
-				onClick={() => navigate('/add-product')}
-				className="w-full py-2 px-4 bg-green-600 text-white font-semibold rounded-md shadow hover:bg-green-700 transition-colors"
-			>
-				Add Product
-			</button>
-		</section>
-	)
-}
-
 // Products *page* using Suspense and Await, with navigation
 export function Products() {
 	const navigate = useNavigate()
@@ -116,6 +90,32 @@ function ProductsError() {
 			<p className="text-red-800 text-lg font-medium">
 				Failed to load products
 			</p>
+		</section>
+	)
+}
+
+// Home *component* with navigation
+export function Home() {
+	const navigate = useNavigate()
+
+	return (
+		<section className="max-w-md mx-auto mt-16 bg-white rounded-xl shadow-lg p-10 border border-gray-200 flex flex-col items-center space-y-6">
+			<h2 className="text-3xl font-bold text-blue-700 mb-4">Home</h2>
+			<button
+				type="button"
+				onClick={() => navigate('/products')}
+				className="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 transition-colors"
+			>
+				Go to Products
+			</button>
+
+			<button
+				type="button"
+				onClick={() => navigate('/add-product')}
+				className="w-full py-2 px-4 bg-green-600 text-white font-semibold rounded-md shadow hover:bg-green-700 transition-colors"
+			>
+				Add Product
+			</button>
 		</section>
 	)
 }

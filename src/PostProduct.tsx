@@ -64,6 +64,9 @@ export function PostProduct() {
 						id="price"
 						name="price"
 						type="number"
+						inputMode="decimal"
+						step="0.01"
+						min="0"
 						required
 						className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
 						placeholder="Product price"
